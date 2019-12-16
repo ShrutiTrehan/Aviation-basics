@@ -1,0 +1,14 @@
+<div class="card mb-4 shadow-sm">
+  <div class="card-header">
+    <h4 class="my-0 font-weight-normal">{{flight.flight}}</h4>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title pricing-card-title"><small>Rs. </small>{{flight.price}}</h5>
+    <ul class="list-unstyled mt-3 mb-4">
+      <li>{{FLIGHT_LIST_CONSTANTS.departure}}: {{flight.departureTime}}</li>
+      <li>{{FLIGHT_LIST_CONSTANTS.arrival}}: {{flight.arrivalTime}}</li>
+    </ul>
+    <button type="button"
+      class="btn btn-md btn-block btn-secondary">Book</button>
+  </div>
+</div>

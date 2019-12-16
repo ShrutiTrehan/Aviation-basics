@@ -1,0 +1,89 @@
+<form class="flight-form"
+  [formGroup]="flightSearchFormGroup"
+  (ngSubmit)="searchFlights()">
+  <div class="row justify-content-md-center">
+    <div class="col-md-5 col-sm-5">
+      <mat-form-field>
+        <input type="text"
+          placeholder="{{FLIGHT_SEARCH_FORM_CONSTANTS.departure}}"
+          matInput
+          formControlName="departure"
+          [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of departureOptions"
+            [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="col-md-5 col-sm-5">
+      <mat-form-field>
+        <input type="text"
+          placeholder="{{FLIGHT_SEARCH_FORM_CONSTANTS.arrival}}"
+          matInput
+          formControlName="arrival"
+          [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of arrivalOptions"
+            [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <div class="col-md-5 col-sm-5">
+      <mat-form-field>
+        <input matInput
+          formControlName="doj"
+          [matDatepicker]="dojPicker"
+          [min]="minDojDate()"
+          placeholder="{{FLIGHT_SEARCH_FORM_CONSTANTS.doj}}">
+        <mat-datepicker-toggle matSuffix
+          [for]="dojPicker"></mat-datepicker-toggle>
+        <mat-datepicker #dojPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-md-5 col-sm-5">
+      <mat-form-field>
+        <input matInput
+          formControlName="dor"
+          [matDatepicker]="dorPicker"
+          [min]="minDorDate()"
+          placeholder="{{FLIGHT_SEARCH_FORM_CONSTANTS.dor}}">
+        <mat-datepicker-toggle matSuffix
+          [for]="dorPicker"></mat-datepicker-toggle>
+        <mat-datepicker #dorPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <div class="col-md-5 col-sm-5">
+      <mat-form-field>
+        <mat-label>{{FLIGHT_SEARCH_FORM_CONSTANTS.travellers}}</mat-label>
+        <mat-select formControlName='travellers'>
+          <mat-option *ngFor='let key of  [1,2]'
+            [value]="key">
+            {{key}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <div class="col-md-5 col-sm-5 text-center">
+      <button class="btn btn-md btn-block btn-secondary"
+        type="submit">{{FLIGHT_SEARCH_FORM_CONSTANTS.search}}</button>
+    </div>
+    <div class="col-md-5 col-sm-5 text-center">
+      <button class="btn btn-md btn-block btn-secondary"
+        type="reset"
+        (click)="resetForm()">{{FLIGHT_SEARCH_FORM_CONSTANTS.reset}}</button>
+    </div>
+  </div>
+</form>

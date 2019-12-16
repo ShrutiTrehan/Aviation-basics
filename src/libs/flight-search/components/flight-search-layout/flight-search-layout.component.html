@@ -1,0 +1,41 @@
+<div class="pt-md-5 mx-auto text-center">
+  <h2 class="display-6">{{FLIGHT_SEARCH_LAYOUT_CONSTANTS.searchFlights}}</h2>
+</div>
+<div class="row marginT10 margin B10 text-center">
+  <app-flight-search-form [arrivalOptions]="arrivalOptions"
+    [departureOptions]="departureOptions"
+    (searchFlightsEvent)="searchFlights($event)"
+    class="col-md-8 col-sm-12"></app-flight-search-form>
+</div>
+<div class="pt-md-5 mx-auto text-center">
+  <h2 class="display-6">{{FLIGHT_SEARCH_LAYOUT_CONSTANTS.searchResults}}</h2>
+</div>
+<div class="row justify-content-md-center mx-10 my-10">
+  <table class="flight-list-container col-md-8 col-sm-12"
+    *ngIf="flightList && flightList.departureFlight.length">
+    <thead class="text-center">
+      <tr>
+        <th class="px-2 py-2">
+          <h5 class="display-5">{{FLIGHT_SEARCH_LAYOUT_CONSTANTS.departureFlights}}</h5>
+        </th>
+        <th *ngIf="flightList && flightList.returnFlight.length"
+          class="px-2 py-2">
+          <h5 class="display-5">{{FLIGHT_SEARCH_LAYOUT_CONSTANTS.returnFlights}}</h5>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="px-3 py-3">
+          <app-flight-list *ngFor="let flight of flightList.departureFlight"
+            [flight]="flight"></app-flight-list>
+        </td>
+        <td *ngIf="flightList && flightList.returnFlight.length"
+          class="px-3 py-3">
+          <app-flight-list *ngFor="let flight of flightList.returnFlight"
+            [flight]="flight"></app-flight-list>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

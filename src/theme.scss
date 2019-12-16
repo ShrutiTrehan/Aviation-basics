@@ -1,0 +1,42 @@
+@mixin theme($name, $primary-color, $secondary-color) {
+  .#{$name} {
+    .flight-detail {
+      border: 1px solid $secondary-color;
+    }
+
+    .flight-form {
+      border: 1px solid $primary-color;
+      color: $primary-color;
+      padding: 10px;
+    }
+
+    .flight-list-container {
+      background-color: $secondary-color;
+      color: $primary-color;
+    }
+
+    .navbar {
+      background-color: $secondary-color;
+      padding: 10px;
+    }
+
+    .navbar-brand {
+      text-transform: uppercase;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      color: white;
+    }
+
+    .navbar-nav .nav-item .nav-link.active {
+      color: $primary-color;
+    }
+
+    button,
+    button:active {
+      background-color: $secondary-color;
+      color: $primary-color;
+    }
+
+  }
+}

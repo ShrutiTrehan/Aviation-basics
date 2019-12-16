@@ -1,0 +1,32 @@
+<div class="theme-{{environment.client}}">
+  <app-notification-message></app-notification-message>
+  <app-loader></app-loader>
+  <nav class="navbar navbar-expand-md navbar-light">
+    <a class="navbar-brand"
+      routerLink="">{{APP_CONSTANTS.brandName}}</a>
+    <button class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbar"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+      id="navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"
+          *ngFor="let cap of capabilities">
+          <a class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="cap.link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            href="javascript:">{{cap.label}}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import './theme.scss';
+
+@include theme(theme-client1, black, #2885A1);
+@include theme(theme-client2, black, #CC808E);
+
+body {
+  font-family: Arial, Helvetica, sans-serif !important;
+  overflow-x: hidden;
+}
+
+.marginR10 {
+  margin-right: 10px;
+}
+
+.marginL10 {
+  margin-left: 10px;
+}
+
+.marginT10 {
+  margin-top: 10px;
+}
+
+.marginB10 {
+  margin-bottom: 10px;
+}
+
+.margin20 {
+  margin: 20px;
+}
+
+mat-form-field {
+  width: 95%;
+}
+
+button {
+  margin-bottom: 5%;
+}
+
+app-flight-search-form {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
